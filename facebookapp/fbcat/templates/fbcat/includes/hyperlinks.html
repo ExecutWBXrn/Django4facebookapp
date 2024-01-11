@@ -1,0 +1,10 @@
+{% load fbcat_tag %}
+{% db_fb as db_fb %}
+<p>
+{% for i in db_fb %}
+    <a href="{% url i.url %}">{{ i.title }}</a>
+{% if not forloop.last %}
+|
+{% endif %}
+{% endfor %}
+</p>

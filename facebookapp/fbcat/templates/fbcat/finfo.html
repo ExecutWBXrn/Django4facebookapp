@@ -1,0 +1,14 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'fbcat/css/fbcss.css' %}">
+    <link type="imagen/x-icon" rel="shortcut icon" href="{% static 'fbcat/img/icons8-facebook.svg' %}">
+</head>
+<body>
+{% include 'fbcat/includes/hyperlinks.html' %}
+<p>Telegram: <a href="https://t.me/beniukroman">Beniuk Roman</a></p>
+</body>
+</html>
