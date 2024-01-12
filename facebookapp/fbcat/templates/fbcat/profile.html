@@ -10,10 +10,10 @@
 <body>
 {% include 'fbcat/includes/hyperlinks.html' %}
 {% for i in DB_fb %}
-{% if i.is_published %}
-    <h2>{{ i.title }}</h2>
-    <p>{{ i.describe }}</p>
-    <p><h3>Profile:<a href="{{ i.get_absolute_url }}">{{ i.title }}</a></h3></p>
+{% if pro_slug == i.slug %}
+<h2>{{ i.title }}</h2>
+<p>{{ i.describe }}</p>
+<a href="#">Follow</a>
 {% endif %}
 {% endfor %}
 </body>
