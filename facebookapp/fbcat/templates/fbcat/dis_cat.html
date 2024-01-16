@@ -10,12 +10,20 @@
 </head>
 <body>
 {% include 'fbcat/includes/hyperlinks.html' %}
-{% cat_db as cat_db %}
-<p><h2>All available categories:</h2></p>
-{% for i in cat_db %}
-<li>
-    {{i.id}}. <a href="{{ i.get_absolute_url }}">{{i.name}}</a>
-</li>
+{% cat_db as cat %}
+{% for j in cat %}
+{% if j.slug == cat_slug %}
+<p>CATEGORIES WITH TAG "{{j.name|upper}}":</p>
+{% for i in db %}
+{% if i.cat_id == j.id %}
+{% if i.is_published %}
+    <h2>{{ i.title }}</h2>
+    <p>{{ i.describe }}</p>
+    <p><h3>Profile:<a href="{{ i.get_absolute_url }}">{{ i.title }}</a></h3></p>
+{% endif %}
+{% endif %}
+{% endfor %}
+{% endif %}
 {% endfor %}
 </body>
 </html>

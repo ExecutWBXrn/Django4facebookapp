@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse ,HttpResponseNotFound
-from .models import facebook
+from .models import facebook, Category
 db_fb=[
     {"title":"home page", "url":"home"},
     {"title":"about site", "url":"about"},
@@ -11,10 +11,7 @@ db_fb=[
 
 db_fb2=facebook.objects.all()
 
-cat_db=[
-    {"id":1, "category":"photo"},
-    {"id":2, "category":"video"},
-]
+cat_db=Category.objects.all()
 
 def index(request):
     context = {
@@ -28,6 +25,15 @@ def category(request):
         "title":"facebook",
     }
     return render(request, 'fbcat/category.html', context=context)
+
+def dis_category(request, cat_slug):
+    w=get_object_or_404(Category, slug=cat_slug)
+    context={
+        "title":w.name,
+        "cat_slug":cat_slug,
+        "db":db_fb2,
+    }
+    return render(request, "fbcat/dis_cat.html", context=context)
 
 def finfo(request):
     context = {

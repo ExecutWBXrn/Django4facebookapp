@@ -7,7 +7,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('fbcat', '0004_category_facebook_cat'),
+        ('fbcat', '0003_alter_facebook_slug'),
     ]
 
     operations = [
