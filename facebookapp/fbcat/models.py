@@ -3,12 +3,15 @@ from django.urls import reverse
 
 
 class facebook(models.Model):
+    class STATUS(models.IntegerChoices):
+        DRAFT = 0, "DRAFT"
+        PUBLISHED = 1, "PUBLISHED"
     title = models.CharField(max_length=255)
     describe = models.TextField(blank=True)
     slug = models.SlugField(max_length=255, unique=True, db_index=True)
     time_create = models.DateTimeField(auto_now_add=True)
     time_update = models.DateTimeField(auto_now=True)
-    is_published = models.BooleanField(default=True)
+    is_published = models.BooleanField(choices=STATUS.choices ,default=STATUS.PUBLISHED)
     cat = models.ForeignKey('Category', on_delete=models.PROTECT)
     tags = models.ManyToManyField('TagPost',blank=True ,related_name='tags')
 
@@ -37,3 +40,6 @@ class TagPost(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse("tag_slug_path", kwargs={"tag_slug":self.slug})

@@ -1,18 +1,20 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse ,HttpResponseNotFound
-from .models import facebook, Category
+from .models import facebook, Category, TagPost
 db_fb=[
     {"title":"home page", "url":"home"},
     {"title":"about site", "url":"about"},
     {"title":"further information", "url":"furinf"},
     {"title":"categories", "url":"cat"},
     {"title":"log in", "url":"log_in"},
+    {"title":"tag", "url":"tag_path"},
 ]
 
 db_fb2=facebook.objects.all()
 
 cat_db=Category.objects.all()
 
+tag_db=TagPost.objects.all()
 def index(request):
     context = {
         "title":"facebook",
@@ -59,8 +61,26 @@ def profile(request, pro_slug):
         "title":"@"+f"{w.title}",
         "pro_slug":pro_slug,
         "DB_fb":db_fb2,
+        "tags":w,
     }
     return render(request, 'fbcat/profile.html', context=context)
+
+def tag(request):
+    context={
+        "title":"tags",
+        "tag_db":tag_db,
+    }
+    return render(request, "fbcat/tag.html", context=context)
+
+def tag_tag_slug(request, tag_slug):
+    w=get_object_or_404(TagPost, slug=tag_slug)
+    post=w.tags.filter(is_published=facebook.STATUS.PUBLISHED)
+    context = {
+        "title":w.name,
+        "tag_slug":tag_slug,
+        "post":post,
+    }
+    return render(request, "fbcat/tag+tag_slug.html", context=context)
 
 def pagenotfound(request,exception):
     return HttpResponseNotFound("Page not found")

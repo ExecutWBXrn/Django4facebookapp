@@ -8,5 +8,7 @@ urlpatterns = [
     path('finfo/', finfo, name='furinf'),
     path('about/', about, name='about'),
     path('login/', log_in, name='log_in'),
-    path('profile/<slug:pro_slug>', profile, name="profile")
+    path('profile/<slug:pro_slug>', profile, name="profile"),
+    path('tag/', tag, name='tag_path'),
+    path('tag/<slug:tag_slug>', tag_tag_slug, name="tag_slug_path"),
 ]

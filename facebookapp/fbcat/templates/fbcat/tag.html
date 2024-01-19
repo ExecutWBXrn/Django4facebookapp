@@ -9,18 +9,10 @@
 </head>
 <body>
 {% include 'fbcat/includes/hyperlinks.html' %}
-{% for i in DB_fb %}
-{% if pro_slug == i.slug %}
-<h2>{{ i.title }}</h2>
-<p>{{ i.describe }}</p>
 <p>
-Hashtakcs:
-{% for t in tags.tags.all %}
-<a href="{{ t.get_absolute_url }}">#{{ t.name }}</a>
+{% for i in tag_db %}
+<a href="{{ i.get_absolute_url }}">{{ i.name }}</a>{% if not forloop.last %}, {% endif %}
 {% endfor %}
 </p>
-<a href="#">Follow</a>
-{% endif %}
-{% endfor %}
 </body>
 </html>
