@@ -21,6 +21,10 @@ from fbcat.views import pagenotfound
 urlpatterns = [
     path('', include("fbcat.urls")),
     path('admin/', admin.site.urls),
+    path("__debug__/", include("debug_toolbar.urls")),
 ]
 
 handler404 = pagenotfound
+
+admin.site.site_header = "Адмін панель"
+admin.site.index_title = "Head admin: ExecutWBXrn"
