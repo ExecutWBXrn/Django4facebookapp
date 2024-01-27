@@ -9,6 +9,10 @@ class AdminFacebook(admin.ModelAdmin):
     list_per_page = 5
     ordering = ['time_update', 'title']
     actions = ["set_published", "set_draft"]
+    search_fields = ["title", "cat__name"]
+    list_filter = ["cat__name", "is_published"]
+    prepopulated_fields = {"slug": ("title", )}
+    filter_horizontal = ["tags"]
 
     @admin.display(description="Коротка інформація", ordering="describe")
     def brief_info(self, facebook: facebook):

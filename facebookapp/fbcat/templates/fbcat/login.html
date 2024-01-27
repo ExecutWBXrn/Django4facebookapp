@@ -9,6 +9,11 @@
 </head>
 <body>
 {% include 'fbcat/includes/hyperlinks.html' %}
-This page will be comming soon!!!
+<form action="" method="post">
+    {% csrf_token %}
+    <p><label for="id_1">Текст: </label> <input type="text" id="id_1" name="field_text"></p>
+    <p><label for="id_2">Пароль: </label> <input type="password" id="id_2" name="field_psw"></p>
+    <button>Відправити</button>
+</form>
 </body>
 </html>
