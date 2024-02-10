@@ -27,6 +27,7 @@ class facebook(models.Model):
     class Meta:
         verbose_name = "Фейсбук"
         verbose_name_plural = "Фейсбук"
+        ordering = ['-time_create']
 
 class Category(models.Model):
     name = models.CharField(max_length=100, db_index=True, verbose_name="Категорії")

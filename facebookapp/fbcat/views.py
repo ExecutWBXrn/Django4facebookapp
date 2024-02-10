@@ -2,12 +2,12 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse ,HttpResponseNotFound
 from .models import facebook, Category, TagPost
 db_fb=[
-    {"title":"home page", "url":"home"},
-    {"title":"about site", "url":"about"},
-    {"title":"further information", "url":"furinf"},
-    {"title":"categories", "url":"cat"},
-    {"title":"log in", "url":"log_in"},
-    {"title":"tag", "url":"tag_path"},
+    {"title":"Головна сторінка", "url":"home"},
+    {"title":"про сайт", "url":"about"},
+    {"title":"додаткова інформація", "url":"furinf"},
+    {"title":"категорії", "url":"cat"},
+    {"title":"увійти", "url":"log_in"},
+    {"title":"теги", "url":"tag_path"},
 ]
 
 db_fb2=facebook.objects.all()
@@ -33,7 +33,7 @@ def dis_category(request, cat_slug):
     context={
         "title":w.name,
         "cat_slug":cat_slug,
-        "db":db_fb2,
+        "DB_fb":db_fb2,
     }
     return render(request, "fbcat/dis_cat.html", context=context)
 

@@ -1,1 +1,267 @@
-facebook clone!!!
+*{
+  margin: 0;
+  padding: 0;
+}
+
+/* HEADER */
+#header{
+  width: 100%;
+  height: 50px;
+  color: white;
+  text-align: center;
+  line-height: 50px;
+  box-shadow: 0px 1px 1px 0px gray;
+}
+
+.title{
+  float: left;
+  margin-left:29%;
+}
+
+.title a{
+  padding: 13px 10px;
+  text-decoration: none;
+  border-radius: 5px;
+  color: gray;
+  font-weight: 600;
+}
+
+.title a:hover{
+  background-color: #e8e8e8;
+  color: blue;
+  border-bottom: 3px solid blue;
+}
+
+#facebook-img{
+  text-align: left;
+  display: block;
+  float: left;
+  margin-left: 20px;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+}
+
+#header-search-field{
+  display: block;
+  float:left;
+  position: absolute;
+  margin-left: 80px;
+  line-height: 50px;
+}
+
+#header-search-field form input{
+  width: 225px;
+  height: 35px;
+  border-radius: 35px;
+  padding-left: 20px;
+  font-size: 1em;
+  font-weight: 100;
+  background-color: #d9d9d9;
+}
+
+#header-search-field form input::placeholder{
+  font-size: 1.2em;
+  margin-left: 20px;
+}
+
+#right-icons{
+  float: right;
+  width:250px;
+  margin-right: 20px;
+  margin-top: 3px;
+}
+
+#right-icons img{
+  width: 40px;
+  height: 40px;
+  float: right;
+  margin-left: 10px;
+  border-radius: 25px;
+}
+/* MAIN */
+
+#main{
+  background-color: #f7fffe;
+  box-shadow: 0px -1px 2px 0px gray;
+  width: 100%;
+  float:left;
+}
+
+#messege{
+  background: white;
+  float: left;
+  width: 30%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 35%;
+  border-radius: 10px;
+  box-shadow: 0px 1px 1px 0px grey;
+}
+
+#messege_head{
+  height: 60px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+#messege_head img[title="Фото профілю"]{
+  height: 80%;
+  border-radius: 50%;
+  margin-top: 1.6666%;
+  margin-left: 3%;
+  float: left;
+}
+
+.Name{
+  float: left;
+  margin-left: 1%;
+  margin-top: 1.6666%;
+}
+
+.Name a{
+  color: black;
+  text-decoration: none;
+}
+
+.Name a:hover{
+  text-decoration: underline;
+}
+
+.Pub_date{
+  position: absolute;
+  margin-left:4.5%;
+  margin-top: 2%;
+  float:left;
+}
+
+.two-right-icon{
+  float: right;
+  width: 30%;
+  height: 100%;
+}
+.two-right-icon img{
+  float: left;
+  width: 20%;
+  border-radius: 50%;
+  margin-left: 20px;
+  margin-top: 12px;
+  padding: 5px;
+}
+
+.two-right-icon img:hover{
+  background-color: #f5f5f5;
+}
+
+#main_photo img{
+  width: 100%;
+}
+
+#messege_bottom{
+  width: 100%;
+  height: 60px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0px 1px 1px 0px grey;
+}
+
+#messege_bottom button{
+  width: 30%;
+  height: 90%;
+  text-align: center;
+  float: left;
+  margin-top: 0.5%;
+  margin-left: 1.6%;
+  margin-right: 1.6%;
+  font-size: 1.2em;
+  color: #bfbfbf;
+  background-color: white;
+  border-radius: 5px;
+  border: none;
+}
+
+#messege_bottom button:hover{
+  background-color: #e3e3e3;
+  cursor: pointer;
+}
+
+#messege_bottom button:active{
+  background-color: #d4d4d4;
+  color: #9c9c9c;
+}
+/* FOOTER */
+#footer{
+  width: 100%;
+  height: 80px;
+  background-color: #c2c2c2;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  float: left;
+}
+
+/* categories */
+.categories{
+  margin-top: 80px;
+  margin-left: 42%;
+  float: left;
+  text-align: center;
+}
+
+.categories li{
+  padding: 15px;
+  list-style: none;
+  border: 1px solid black;
+  margin-top: 5%;
+  border-radius: 20px;
+  margin-bottom: 5%;
+}
+
+.categories li a{
+  text-decoration: none;
+  color: black;
+  font-size: 4.5em;
+}
+
+.categories li:hover{
+  background-color: #f0f0f0;
+  box-shadow: 0px 0px 5px 0px black;
+}
+
+/* profile */
+
+#profile{
+  width: 100%;
+}
+
+#header_profile{
+  width: 60%;
+  height: 350px;
+  background-color: #f0f0f0;
+  margin-left: 20%;
+  box-shadow: inset 0px 1px 1px 0px grey, inset 0px -25px 25px 25px grey;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  position: absolute;
+  float: left;
+}
+
+#avatar_profile{
+  width: 10%;
+  margin-left: 25%;
+  position: sticky;
+  margin-top: 300px;
+  border-radius: 50%;
+  padding: 5px;
+  background-color: white;
+  float: left;
+}
+
+#name_profile{
+  margin-left: 37%;
+  margin-top: 375px;
+  position: absolute;
+  float: left;
+  font-size: 1.6em;
+  font-weight: bolder;
+  float: left;
+}

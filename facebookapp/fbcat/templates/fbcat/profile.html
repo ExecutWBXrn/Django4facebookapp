@@ -1,26 +1,36 @@
+{% extends 'base.html' %}
+
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ title }}</title>
-    <link type="text/css" rel="stylesheet" href="{% static 'fbcat/css/fbcss.css' %}">
-    <link type="imagen/x-icon" rel="shortcut icon" href="{% static 'fbcat/img/icons8-facebook.svg' %}">
-</head>
-<body>
-{% include 'fbcat/includes/hyperlinks.html' %}
-{% for i in DB_fb %}
-{% if pro_slug == i.slug %}
-<h2>{{ i.title }}</h2>
-<p>{{ i.describe }}</p>
-<p>
-Hashtakcs:
-{% for t in tags.tags.all %}
-<a href="{{ t.get_absolute_url }}">#{{ t.name }}</a>
-{% endfor %}
-</p>
-<a href="#">Follow</a>
-{% endif %}
-{% endfor %}
-</body>
-</html>
+
+{% block main %}
+<div id="profile">
+    <div id="header_profile"></div>
+    <img id="avatar_profile" src="{% static 'fbcat/img/avatar.jpg' %}" alt="avatar">
+    <div id="name_profile">{{ tags.title }}</div>
+</div>
+<div id="profile_page">
+    {% for i in DB_fb %}
+    {% if i.slug == pro_slug %}
+    <div id="messege">
+        <div id="messege_head">
+            <a href="{{ i.get_absolute_url }}"><img src="{% static 'fbcat/img/avatar.jpg' %}" alt="{{ i.title }}" title="Фото профілю"></a>
+            <div class="Name"><b><a href="{{ i.get_absolute_url }}">{{ i.title }}</a></b></div>
+            <div class="Pub_date">{{ i.time_create }}</div>
+            <div class="two-right-icon">
+                <a href="#"><img src="{% static 'fbcat/img/three_dots_icon.png' %}" alt="3 dot"></a>
+                <a href="#"><img src="{% static 'fbcat/img/chrest.png' %}" alt="chrest"></a>
+            </div>
+        </div>
+        <div id="main_photo">
+            <img src="{% static 'fbcat/img/avatar.jpg' %}" alt="avatar">
+        </div>
+        <div id="messege_bottom">
+            <button>Подобається</button>
+            <button>Коментувати</button>
+            <button>Поширити</button>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}

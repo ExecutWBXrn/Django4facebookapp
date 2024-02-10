@@ -1,10 +1,21 @@
+{% load static %}
+
 {% load fbcat_tag %}
 {% db_fb as db_fb %}
-<p>
-{% for i in db_fb %}
-    <a href="{% url i.url %}">{{ i.title }}</a>
-{% if not forloop.last %}
-|
-{% endif %}
-{% endfor %}
-</p>
+<div id="header">
+    <div id="facebook-img"><a href="{% url 'home' %}"><img src="{% static 'fbcat/img/icons8-facebook.svg' %}" alt="facebook-icon"></a></div>
+    <div id="header-search-field" ><form action=""><input type="text" placeholder="🔍︎ Пошук у Facebook"></form></div>
+    <div class="title">
+        {% for i in db_fb %}
+        <a href="{% url i.url %}" title="{{ i.title }}">{{ i.title }}</a>
+        {% endfor %}
+    </div>
+    <a href="{% url 'profile' 'photo-some' %}">
+    <div id="right-icons">
+        <img src="{% static 'fbcat/img/avatar.jpg' %}" alt=avatar" title="Обліковий запис">
+        <img src="{% static 'fbcat/img/bell-icon.jpg' %}" alt="bell" title="Сповіщення">
+        <img src="{% static 'fbcat/img/messenger-icon.jpg' %}" alt="messenger" title="Messenger">
+        <img src="{% static 'fbcat/img/9_dots.jpg' %}" alt="menu" title="Меню">
+    </div>
+    </a>
+</div>

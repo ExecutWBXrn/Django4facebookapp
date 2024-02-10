@@ -1,14 +1,6 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ title }}</title>
-    <link type="text/css" rel="stylesheet" href="{% static 'fbcat/css/fbcss.css' %}">
-    <link type="imagen/x-icon" rel="shortcut icon" href="{% static 'fbcat/img/icons8-facebook.svg' %}">
-</head>
-<body>
-{% include 'fbcat/includes/hyperlinks.html' %}
-<p>Telegram: <a href="https://t.me/beniukroman">Beniuk Roman</a></p>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block main %}
+<img style="width: 200px; height: 200px; position: absolute; float: left; margin-left: 40%; margin-top: 20px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/2048px-Telegram_logo.svg.png" alt="telegram-icon">
+<div style="height: 600px; font-size: 5em; text-align: center; line-height: 600px;"> <a href="https://t.me/beniukroman" style="color: black;text-decoration: none; padding: 10px; border-radius: 25px; box-shadow: 0px 0px 5px 0px grey;">Telegram: <span style="border-radius: 25px; background-color: #00b3ff; font-size: 0.9em; padding: 5px;">Beniuk Roman</span></a></div>
+{% endblock %}

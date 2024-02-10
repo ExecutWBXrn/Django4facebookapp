@@ -1,0 +1,28 @@
+{% load static %}
+
+{% load fbcat_tag %}
+{% cat_db as cat_db %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'fbcat/css/fbcss.css' %}">
+    <link type="imagen/x-icon" rel="shortcut icon" href="{% static 'fbcat/img/icons8-facebook.svg' %}">
+</head>
+<body>
+{% block header %}
+{% include 'fbcat/includes/hyperlinks.html' %}
+{% endblock %}
+
+{% block main %}
+{% endblock %}
+
+{% block aside %}{% endblock %}
+
+{% block footer %}
+<div id="footer"></div>
+{% endblock %}
+</body>
+</html>

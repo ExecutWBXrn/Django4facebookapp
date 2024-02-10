@@ -1,18 +1,15 @@
+{% extends 'base.html' %}
+
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ title }}</title>
-    <link type="text/css" rel="stylesheet" href="{% static 'fbcat/css/fbcss.css' %}">
-    <link type="imagen/x-icon" rel="shortcut icon" href="{% static 'fbcat/img/icons8-facebook.svg' %}">
-</head>
-<body>
-{% include 'fbcat/includes/hyperlinks.html' %}
-<p>
-{% for i in tag_db %}
-<a href="{{ i.get_absolute_url }}">{{ i.name }}</a>{% if not forloop.last %}, {% endif %}
-{% endfor %}
-</p>
-</body>
-</html>
+
+{% block main %}
+<div style="height: 600px;">
+    <div style="margin-left: 45%;position:absolute; font-size:4em; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; box-shadow: 0px 2px 2px 0px grey; float:left; ">Tags</div>
+    <ol class="categories" style="margin-left: 37%;">
+        {% for i in tag_db %}
+        <li><a href="{{ i.get_absolute_url }}">{{ i.name }}</a>{% if not forloop.last %}, {% endif %}</li>
+        {% endfor %}
+    </ol>
+
+</div>
+{% endblock %}
